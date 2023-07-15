@@ -7,6 +7,7 @@ defmodule Glaucodata.Repo.Migrations.CreateDiagnosticsTable do
       add :glaucoma_type, :string
       add :glaucoma_severity, :string
       add :previous_surgeries, :string
+      
       add :patient_cns, references(:patients, column: :CNS, type: :integer)
 
       timestamps()

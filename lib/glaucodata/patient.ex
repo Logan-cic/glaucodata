@@ -3,6 +3,7 @@ defmodule Glaucodata.Patient do
   import Ecto.Changeset
 
   alias Glaucodata.Diagnostic
+  alias Glaucodata.Treatment
 
   @primary_key {:CNS, :integer, autogenerate: false}
 
@@ -31,6 +32,8 @@ defmodule Glaucodata.Patient do
     field :CEP, :string
     field :city, :string
     field :state, :string
+
+    has_many :treatments, Treatment, foreign_key: :patient_cns
     has_one :diagnostic, Diagnostic, foreign_key: :patient_cns
 
     timestamps()
