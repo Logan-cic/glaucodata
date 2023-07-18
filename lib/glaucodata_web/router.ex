@@ -1,5 +1,6 @@
 defmodule GlaucodataWeb.Router do
   use GlaucodataWeb, :router
+  use Phoenix.LiveView
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -24,6 +25,7 @@ defmodule GlaucodataWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/cadastro", CadastroLive, :index
   end
 
   # Other scopes may use custom stacks.
