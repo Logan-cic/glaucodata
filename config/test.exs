@@ -17,7 +17,7 @@ config :glaucodata, Glaucodata.Repo,
 # you can enable the server option below.
 config :glaucodata, GlaucodataWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "jAR1Y9xO7+hWFkr6V0dfd8put2FB/Qv9TRPvSmlr3RECDTODQ0QT5nzkTGgeFoX/",
+  secret_key_base: "MnT5q7U03XV7NJKRSMV9ZLJvv09un3U/cuJs1m6e6a9fa+G0pc+uZ6TYBhNmQQfr",
   server: false
 
 # In test we don't send emails.

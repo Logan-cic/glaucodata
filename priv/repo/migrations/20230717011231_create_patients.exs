@@ -3,7 +3,7 @@ defmodule Glaucodata.Repo.Migrations.CreatePatients do
 
   def change do
     create table(:patients, primary_key: false) do
-      add :CNS, :integer, primary_key: true
+      add :cns, :integer, primary_key: true
       add :medical_record, :string, null: false
       add :patient_name, :string
       add :mother_name, :string
@@ -18,13 +18,14 @@ defmodule Glaucodata.Repo.Migrations.CreatePatients do
       add :address, :string
       add :neighborhood, :string
       add :house_number, :integer
-      add :CEP, :string
+      add :cep, :string
       add :city, :string
       add :state, :string
 
       timestamps()
     end
-    create unique_index(:patients, [:CNS])
+
+    create unique_index(:patients, [:cns])
     create unique_index(:patients, [:medical_record])
   end
 end

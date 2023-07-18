@@ -1,18 +1,18 @@
-defmodule Glaucodata.Patient do
+defmodule Glaucodata.Patients.Patient do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Glaucodata.Diagnostic
-  alias Glaucodata.Treatment
+  alias Glaucodata.Diagnostics.Diagnostic
+  alias Glaucodata.Treatments.Treatment
 
-  @primary_key {:CNS, :integer, autogenerate: false}
+  @primary_key {:cns, :integer, autogenerate: false}
 
-  @fields [:CNS, :medical_record, :patient_name, :mother_name, :father_name,
-           :ethnicity, :birthplace, :marital_status, :date_of_birth,
-           :phone_number, :occupation, :education_level, :address,
-           :neighborhood, :house_number, :CEP, :city, :state]
+  @fields [:cns, :medical_record, :patient_name, :mother_name, :father_name,
+  :ethnicity, :birthplace, :marital_status, :date_of_birth,
+  :phone_number, :occupation, :education_level, :address,
+  :neighborhood, :house_number, :cep, :city, :state]
 
-  @required_fields [:CNS, :medical_record, :patient_name, :mother_name, :father_name, :phone_number, :CEP]
+  @required_fields [:cns, :medical_record, :patient_name, :mother_name, :father_name, :phone_number, :cep]
 
   schema "patients" do
     field :medical_record, :string
@@ -29,19 +29,19 @@ defmodule Glaucodata.Patient do
     field :address, :string
     field :neighborhood, :string
     field :house_number, :integer
-    field :CEP, :string
+    field :cep, :string
     field :city, :string
     field :state, :string
 
+    has_one :diagnostics, Diagnostic, foreign_key: :patient_cns
     has_many :treatments, Treatment, foreign_key: :patient_cns
-    has_one :diagnostic, Diagnostic, foreign_key: :patient_cns
 
     timestamps()
   end
 
-  def changeset(params) do
-    %__MODULE__{}
-    |> cast(params, @fields)
+  def changeset(patient, attrs) do
+    patient
+    |> cast(attrs, @fields)
     |> validate_required(@required_fields)
   end
 end

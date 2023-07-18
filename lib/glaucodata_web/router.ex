@@ -14,6 +14,12 @@ defmodule GlaucodataWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", GlaucodataWeb do
+    pipe_through :api
+
+    resources "/patients", PatientController, except: [:new, :edit]
+  end
+
   scope "/", GlaucodataWeb do
     pipe_through :browser
 

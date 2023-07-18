@@ -12,7 +12,7 @@ defmodule Glaucodata.Repo.Migrations.CreateTreatments do
       add :last_gonioscopy_date, :date
       add :neuropathy_progression, :string
 
-      add :patient_cns, references(:patients, column: :CNS, type: :integer)
+      add :patient_cns, references(:patients, column: :cns, type: :integer)
 
       timestamps()
     end

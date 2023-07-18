@@ -7,7 +7,7 @@ defmodule GlaucodataWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_glaucodata_key",
-    signing_salt: "Kvbjn5zL",
+    signing_salt: "5MBvPNHI",
     same_site: "Lax"
   ]
 

@@ -23,7 +23,7 @@ config :glaucodata, GlaucodataWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "T64pHtAi8tEIE6owIKFdLtUadxZcKnoBuCoJuOQ5J1UlIf68ya57azAwKlY1mCB9",
+  secret_key_base: "/p74I8vskcCoP76xUnfK/meIPSmPfRGcrDeWRS30DH/L3Z6CorzgjpzsP0BetXXx",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
@@ -77,7 +77,3 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
-
-
-config :glaucodata, YourApp.Endpoint,
-  system_env: [FILESYSTEM_FSINOTIFY_EXECUTABLE_FILE: "/usr/bin/inotifywait"]

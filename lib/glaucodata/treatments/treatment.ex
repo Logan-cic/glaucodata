@@ -1,15 +1,17 @@
-defmodule Glaucodata.Treatment do
+defmodule Glaucodata.Treatments.Treatment do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Glaucodata.Patient
+  alias Glaucodata.Patients.Patient
+
+  @fields [:id, :eye_drops, :last_consultation_date, :last_campimetry_date, :last_retinography_date,
+  :last_OCT_date, :last_gonioscopy_date, :neuropathy_progression, :patient_cns]
+
+  @required_fields [:eye_drops, :patient_cns]
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
-  @fields [:id, :eye_drops, :last_consultation_date, :last_campimetry_date, :last_retinography_date,
-           :last_OCT_date, :last_gonioscopy_date, :neuropathy_progression, :patient_cns]
-
-  @required_fields [:eye_drops, :patient_cns]
+  @derive {Jason.Encoder, only: @fields}
 
   schema "treatments" do
     field :eye_drops, :string
@@ -20,16 +22,14 @@ defmodule Glaucodata.Treatment do
     field :last_gonioscopy_date, :date
     field :neuropathy_progression, :string
 
-    belongs_to :patient, Patient, foreign_key: :patient_cns, references: :CNS
+    belongs_to :patients, Patient, foreign_key: :patient_cns, references: :cns
 
     timestamps()
   end
 
-  def changeset(params) do
-    %__MODULE__{}
-
-    |> cast(params, @fields)
+  def changeset(treatment, attrs) do
+    treatment
+    |> cast(attrs, @fields)
     |> validate_required(@required_fields)
   end
-
 end

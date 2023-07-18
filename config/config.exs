@@ -18,7 +18,7 @@ config :glaucodata, GlaucodataWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Glaucodata.PubSub,
-  live_view: [signing_salt: "SmOgYbEx"]
+  live_view: [signing_salt: "pRqb8XNR"]
 
 # Configures the mailer
 #
