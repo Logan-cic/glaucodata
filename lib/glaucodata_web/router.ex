@@ -1,5 +1,6 @@
 defmodule GlaucodataWeb.Router do
   use GlaucodataWeb, :router
+  # GlaucodataWeb.Router
   use Phoenix.LiveView
 
   pipeline :browser do

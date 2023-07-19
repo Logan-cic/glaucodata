@@ -1,49 +1,29 @@
 defmodule GlaucodataWeb.CadastroLive do
-  use Phoenix.LiveView
-
-  alias Glaucodata.Patients.Patient
+  use GlaucodataWeb, :live_view
 
   def mount(_params, _session, socket) do
-    changeset = Patient.changeset(%Patient{})
-
-    {:ok, assign(socket, changeset: changeset)}
+    {:ok, assign(socket, number: 0, form: to_form(%{}))}
   end
 
-  
+  def render(assigns) do
+    ~H"""
+      <%= @number%>
+      <.button phx-click="add">Add</.button>
+
+      <.simple_form for={@form} phx-submit="adding_more">
+        <.input field={@form[:add_amount]} value="5"/>
+        <.button>Add More</.button>
+      </.simple_form>
+    """
+  end
+
+  def handle_event("add", _unsigned_params, socket) do
+    {:noreply, assign(socket, number: socket.assigns.number + 1)}
+  end
+
+  def handle_event("adding_more", %{"add_amount" => the_added_amount}, socket) do
+    {number, _} = Integer.parse(the_added_amount)
+    {:noreply, assign(socket, number: socket.assigns.number + number)}
+  end
+
 end
-
-
-# def mount(_params, _session, socket) do
-#   socket =
-#     socket
-#     |> assign(:counter, 0)
-#   {:ok, socket}
-# end
-
-# def handle_event("aumentar", _params, socket) do
-#   socket =
-#     socket
-#     |>assign(:counter, socket.assigns.counter + 1)
-#   {:noreply, socket}
-# end
-
-# def handle_event("diminuir", _params, socket) do
-#   socket =
-#     socket
-#     |>assign(:counter, socket.assigns.counter - 1)
-#   {:noreply, socket}
-# end
-
-# def render(assigns) do
-#   ~H"""
-#     <div class="flex justify-center items-center h-screen">
-#       <div>
-#         <p class="text-center">pikas chupadas <%=@counter%></p>
-#         <button class="rounded-full bg-green-500 text-white px-4 py-2" phx-click="aumentar">Aumentar +</button>
-#         <button class="rounded-full bg-green-500 text-white px-4 py-2" phx-click="diminuir">Diminuir -</button>
-#         <label for="sus-input">Carteira Nacional do SUS:</label>
-#         <input type="text" id="sus-input" name="sus" placeholder="Digite o número da CNS"/>
-#       </div>
-#     </div>
-#    """
-# end
