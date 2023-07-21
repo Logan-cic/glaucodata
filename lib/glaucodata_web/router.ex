@@ -19,7 +19,7 @@ defmodule GlaucodataWeb.Router do
   scope "/api", GlaucodataWeb do
     pipe_through :api
 
-    resources "/patients", PatientController, except: [:new, :edit]
+    resources "/patients", PatientController, only: [:create, :update, :delete, :show]
   end
 
   scope "/", GlaucodataWeb do

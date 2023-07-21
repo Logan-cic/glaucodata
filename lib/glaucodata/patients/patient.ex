@@ -8,7 +8,7 @@ defmodule Glaucodata.Patients.Patient do
   @primary_key {:cns, :integer, autogenerate: false}
 
   @fields [:cns, :medical_record, :patient_name, :mother_name, :father_name,
-  :ethnicity, :birthplace, :marital_status, :date_of_birth,
+  :ethnicity, :birthplace, :marital_status,
   :phone_number, :occupation, :education_level, :address,
   :neighborhood, :house_number, :cep, :city, :state]
 
@@ -39,9 +39,9 @@ defmodule Glaucodata.Patients.Patient do
     timestamps()
   end
 
-  def changeset(patient, attrs) do
+  def changeset(patient \\ %__MODULE__{}, params) do
     patient
-    |> cast(attrs, @fields)
+    |> cast(params, @fields)
     |> validate_required(@required_fields)
   end
 end
