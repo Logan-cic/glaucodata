@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glaucodata</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo"><a href="#">Glaucodata</a></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h1>Dados do diagnóstico</h1>
+
+        <form action="#" class="form">
+            <div class="glaucoma-box">
+                <h3>Tipo de glaucoma</h3>
+                <div class="option">
+                  <div class="glaucoma">
+                    <input type="radio" id="primaryopen" name="type"/>
+                    <label for="primaryopen">Primário de ângulo aberto</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="primaryclosed" name="type"/>
+                    <label for="primaryclosed">Primário de ângulo secundário</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="secundary" name="type"/>
+                    <label for="check-other">Secundário</label>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="glaucoma-box">
+                <h3>Gravidade do glaucoma</h3>
+                <div class="option">
+                  <div class="glaucoma">
+                    <input type="radio" id="hypertension" name="stage"/>
+                    <label for="hypertension">Hipertensão ocular</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="early" name="stage"/>
+                    <label for="primaryclosed">Glaucoma leve</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="moderate" name="stage"/>
+                    <label for="check-other">Glaucoma moderado</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="severe" name="stage"/>
+                    <label for="check-other">Glaucoma grave</label>
+                  </div>
+                </div>
+            </div>
+
+            <div class="glaucoma-box">
+                <h3>Cirurgias oftalmológicas prévias</h3>
+                <div class="option">
+                  <div class="glaucoma">
+                    <input type="radio" id="none" name="surgery"/>
+                    <label for="none">Não realizou</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="cataract" name="surgery"/>
+                    <label for="cataract">Catarata</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="glaucoma" name="surgery"/>
+                    <label for="glaucoma">Glaucoma</label>
+                  </div>
+                  <div class="glaucoma">
+                    <input type="radio" id="other" name="surgery"/>
+                    <label for="other">Outras</label>
+                  </div>
+                </div>
+            </div>
+  
+
+        <h1>Dados do tratamento</h1>
+
+            <div class="eyedrop-box">
+                <h3>Colírios (tratamento atual)</h3>
+                <div class="option">
+                  <div class="eyedrop">
+                    <input type="radio" id="beta" name="eyedrop"/>
+                    <label for="beta">Beta bloqueadores</label>
+                  </div>
+                  <div class="eyedrop">
+                    <input type="radio" id="alpha" name="eyedrop"/>
+                    <label for="alpha">Alfa-agonistas</label>
+                  </div>
+                  <div class="eyedrop">
+                    <input type="radio" id="inhibitors" name="eyedrop"/>
+                    <label for="inhibitors">Inibidores de anidrase carbônica</label>
+                  </div>
+                  <div class="eyedrop">
+                    <input type="radio" id="analog" name="eyedrop"/>
+                    <label for="analog">Análogos de prostaglandinas</label>
+                  </div>
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Data da última consulta</label>
+                    <input type="date">
+                </div>
+
+                <div class="input-box">
+                    <label>Data da última campimetria</label>
+                    <input type="date">
+                </div>
+
+                <div class="input-box">
+                    <label>Data da última retinografia</label>
+                    <input type="date">
+                </div>      
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Data da última OCT</label>
+                    <input type="date">
+                </div>
+
+                <div class="input-box">
+                    <label>Data da última gonioscopia</label>
+                    <input type="date">
+                </div>  
+            </div>
+
+            <div class="progression-box">
+              <h3>Apresentou progressão da neuropatia óptica glaucomatosa desde a última consulta?</h3>
+              <div class="option">
+                <div class="progression">
+                  <input type="radio" id="yes" name="eyedrop"/>
+                  <label for="beta">Sim</label>
+                </div>
+                <div class="progression">
+                  <input type="radio" id="No" name="eyedrop"/>
+                  <label for="alpha">Não</label>
+                </div>
+           </div>
+
+            <button id="back">Voltar</button>
+            <button>Próximo</button>
+        </form>
+    </section>  
+</body>
+</html>
